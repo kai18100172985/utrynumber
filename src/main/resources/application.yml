@@ -1,0 +1,30 @@
+server:
+  port: 8093
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: hekai
+    password: orcl
+#    url: jdbc:oracle:thin:@10.0.13.142:1521:hddbtest
+#    username: u3cuser_hk
+#    password: u3cuser123
+mybatis:
+  typeAliasesPackage: com.utry.pojo
+  mapperLocations: classpath:mappers/*.xml
+jedis:
+  pool:
+    host: 111.230.52.34
+    port: 6379
+#    password: root
+    config:
+      maxTotal: 100
+      maxIdle: 10
+      maxWaitMillis: 100000
+logging:
+  level: 
+    com.utry.mapper: debug

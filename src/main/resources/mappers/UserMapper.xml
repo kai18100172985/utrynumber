@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，唯一特性 -->
+<mapper namespace="com.utry.mapper.UserMapper">
+	 <select id="findlist" parameterType="java.lang.String" resultType="User">
+          select * from hekai.users 
+          <where>
+               id<![CDATA[>]]>0
+              <if test="name!= ''">
+                 and name=#{name}
+                 </if>
+                  <if test="telephone!= ''">
+                 and telephone=#{telephone}
+                 </if>
+           </where> 
+       </select>
+       
+       <delete id="deletebyname" parameterType="java.lang.String">
+       delete from hekai.users 
+                 <where>
+               id<![CDATA[>]]>0
+              <if test="name!= ''">
+                 and name=#{name}
+                 </if>
+                  <if test="telephone!= ''">
+                 and telephone=#{telephone}
+                 </if>
+           </where> 
+       </delete>
+</mapper>
